@@ -60,33 +60,33 @@ const extendedItems = [
 export const Expertise: React.FC = () => {
   return (
     <section id="expertise" className="relative">
-      
+
       {/* Core Expertise Header */}
       <div className="bg-white pt-20 pb-10 text-center">
         <h2 className="text-4xl md:text-6xl font-black text-ebs-purple uppercase mb-4" data-aos="fade-down">
           Our Core Expertise
         </h2>
-        <div className="w-24 h-2 bg-ebs-red mx-auto rounded-full" data-aos="zoom-in" data-aos-delay="200"/>
+        <div className="w-24 h-2 bg-ebs-red mx-auto rounded-full" data-aos="zoom-in" data-aos-delay="200" />
       </div>
 
       {/* Core Split Layout */}
       <div className="flex flex-col lg:flex-row">
         {/* Left Visual - Hidden on mobile for cleaner look or use as banner */}
         <div className="hidden lg:block lg:w-1/3 relative h-[800px]" data-aos="fade-right">
-           <img 
-            src="https://picsum.photos/800/1200?grayscale" 
-            alt="Team Strategy" 
+          <img
+            src="https://picsum.photos/seed/expertise/800/1200?grayscale"
+            alt="Team Strategy"
             className="w-full h-full object-cover"
-           />
-           <div className="absolute inset-0 bg-ebs-purple/30 mix-blend-overlay" />
+          />
+          <div className="absolute inset-0 bg-ebs-purple/30 mix-blend-overlay" />
         </div>
 
         {/* Right Content - Red Background */}
         <div className="lg:w-2/3 bg-ebs-red text-white p-10 md:p-20 flex flex-col justify-center">
           <div className="space-y-16">
             {coreItems.map((item, index) => (
-              <div 
-                key={item.id} 
+              <div
+                key={item.id}
                 className="relative pl-4 group"
                 data-aos="fade-up"
                 data-aos-delay={index * 100}
@@ -119,25 +119,25 @@ export const Expertise: React.FC = () => {
         <div className="md:w-3/4 bg-gray-50 p-10 md:p-20">
           <div className="grid gap-12">
             {extendedItems.map((item, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="flex gap-6 items-start hover:bg-white hover:shadow-lg p-4 rounded-xl transition-all duration-300"
                 data-aos="fade-up"
                 data-aos-delay={index * 50}
               >
-                 <div className="w-3 h-full flex flex-col items-center">
-                    <div className="w-3 h-3 bg-ebs-purple rounded-full" />
-                    {index !== extendedItems.length - 1 && (
-                      <div className="w-0.5 h-20 bg-ebs-purple/30 border-l border-dashed border-ebs-purple my-2" />
-                    )}
-                 </div>
-                 <div>
-                   <h4 className="text-xl font-bold text-gray-900 uppercase mb-2 flex items-center gap-3">
-                     <span className="text-ebs-purple">{item.icon}</span>
-                     {item.title}
-                   </h4>
-                   <p className="text-gray-600">{item.desc}</p>
-                 </div>
+                <div className="w-3 h-full flex flex-col items-center">
+                  <div className="w-3 h-3 bg-ebs-purple rounded-full" />
+                  {index !== extendedItems.length - 1 && (
+                    <div className="w-0.5 h-20 bg-ebs-purple/30 border-l border-dashed border-ebs-purple my-2" />
+                  )}
+                </div>
+                <div>
+                  <h4 className="text-xl font-bold text-gray-900 uppercase mb-2 flex items-center gap-3">
+                    <span className="text-ebs-purple">{item.icon}</span>
+                    {item.title}
+                  </h4>
+                  <p className="text-gray-600">{item.desc}</p>
+                </div>
               </div>
             ))}
           </div>

@@ -7,7 +7,7 @@ export const Hero: React.FC = () => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://picsum.photos/1920/1080?grayscale&blur=2"
+          src="https://picsum.photos/seed/hero/1920/1080?grayscale&blur=2"
           alt="City Skyline"
           className="w-full h-full object-cover transform scale-105 animate-slow-zoom"
         />

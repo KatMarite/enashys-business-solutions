@@ -9,6 +9,7 @@ import { Services } from './components/Services';
 import { VisionMission } from './components/VisionMission';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
+import { WhatsAppButton } from './components/WhatsAppButton';
 
 const App: React.FC = () => {
   useEffect(() => {
@@ -37,6 +38,7 @@ const App: React.FC = () => {
         <Contact />
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };

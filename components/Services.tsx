@@ -1,84 +1,128 @@
 import React from 'react';
-import { Building, Users, User, Rocket, Megaphone, Presentation, Database } from 'lucide-react';
+import { Layers, Calendar, Megaphone, TrendingUp, Sparkles, User, Users, Newspaper, Target } from 'lucide-react';
 
 export const Services: React.FC = () => {
-  
-  const circleCards = [
-    {
-      title: "Corporate & FMCG Brands",
-      desc: "Large-scale activations, PR campaigns, and strategic consulting",
-      icon: <Building size={48} className="text-ebs-red" />
-    },
-    {
-      title: "SME & Start-Up Brands",
-      desc: "Tailored marketing, brand development, and lead-generation solutions",
-      icon: <Rocket size={48} className="text-ebs-red" />
-    },
-    {
-      title: "Personal Brands",
-      desc: "Branding, PR, and digital positioning for individuals and talent",
-      icon: <User size={48} className="text-ebs-red" />
-    }
-  ];
 
-  const serviceList = [
-    { title: "Brand Strategy & Consulting", desc: "Brand audits, positioning, and marketing roadmaps" },
-    { title: "Sales & Automation", desc: "CRM setup, automated funnels, and client retention systems" },
-    { title: "Experiential Marketing", desc: "Activations, events, and sponsorship management" },
-    { title: "Personal Branding", desc: "Identity design, visibility strategy, and content direction" },
-    { title: "Event Production", desc: "Corporate events, launches, and experiential showcases" },
-    { title: "Talent Management", desc: "Influencer partnerships and campaign coordination" },
-    { title: "Public Relations", desc: "Media relations, press releases, and brand storytelling" },
-    { title: "Digital Marketing", desc: "Social media management, paid ads, and analytics" },
-    { title: "Lead Generation", desc: "Curated contact lists, qualified leads, and B2B/B2C prospecting" },
+  const services = [
+    {
+      title: "Brand Strategy",
+      description: "Defining your voice, identity, and market positioning for long-term success.",
+      icon: <Layers className="w-8 h-8" />,
+      items: ["Audit", "Identity", "Roadmap"]
+    },
+    {
+      title: "Event Management",
+      description: "End-to-end production for corporate events, launches, and activations.",
+      icon: <Calendar className="w-8 h-8" />,
+      items: ["Concept", "Logistics", "Execution"]
+    },
+    {
+      title: "Digital & PR",
+      description: "Amplifying your message through strategic media channels and content.",
+      icon: <Megaphone className="w-8 h-8" />,
+      items: ["Content", "Outreach", "Growth"]
+    },
+    {
+      title: "Sales & Automation",
+      description: "CRM setup, automated funnels, and client retention systems.",
+      icon: <TrendingUp className="w-8 h-8" />,
+      items: ["CRM Setup", "Funnels", "Retention"]
+    },
+    {
+      title: "Experiential Marketing",
+      description: "Activations, events, and sponsorship management.",
+      icon: <Sparkles className="w-8 h-8" />,
+      items: ["Activations", "Events", "Sponsorships"]
+    },
+    {
+      title: "Personal Branding",
+      description: "Identity design, visibility strategy, and content direction.",
+      icon: <User className="w-8 h-8" />,
+      items: ["Identity", "Visibility", "Content"]
+    },
+    {
+      title: "Talent Management",
+      description: "Influencer partnerships and campaign coordination.",
+      icon: <Users className="w-8 h-8" />,
+      items: ["Influencers", "Partnerships", "Campaigns"]
+    },
+    {
+      title: "Public Relations",
+      description: "Media relations, press releases, and brand storytelling.",
+      icon: <Newspaper className="w-8 h-8" />,
+      items: ["Media", "Press", "Storytelling"]
+    },
+    {
+      title: "Lead Generation",
+      description: "Curated contact lists, qualified leads, and B2B/B2C prospecting.",
+      icon: <Target className="w-8 h-8" />,
+      items: ["Contacts", "Qualified Leads", "Prospecting"]
+    }
   ];
 
   return (
     <section id="services" className="py-24 bg-white">
       <div className="container mx-auto px-6">
-        
-        {/* Header */}
-        <div className="text-center mb-16" data-aos="zoom-in">
-          <h2 className="text-5xl md:text-6xl font-black text-ebs-purple uppercase tracking-tight">
-            Personal Branding <span className="text-ebs-red">& More</span>
-          </h2>
-        </div>
 
-        {/* Circular Cards */}
-        <div className="grid md:grid-cols-3 gap-8 mb-24">
-          {circleCards.map((card, index) => (
-            <div 
-              key={index} 
-              className="flex flex-col items-center text-center"
-              data-aos="fade-up"
-              data-aos-delay={index * 150}
-            >
-              <div className="w-48 h-48 rounded-full border-4 border-ebs-red flex items-center justify-center bg-white shadow-xl mb-8 group hover:scale-110 transition-transform duration-300 cursor-pointer">
-                <div className="group-hover:animate-bounce">
-                  {card.icon}
-                </div>
-              </div>
-              <h3 className="text-2xl font-black text-white bg-ebs-red px-6 py-2 rounded-full mb-4 w-full transform transition-transform hover:scale-105">
-                {card.title}
-              </h3>
-              <p className="text-gray-600 px-4">
-                {card.desc}
+        {/* Header */}
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 mb-16">
+          <div data-aos="fade-right">
+            <h2 className="text-5xl md:text-7xl font-black uppercase leading-none">
+              <span className="text-ebs-purple">OUR</span>
+              <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-ebs-purple via-ebs-red to-ebs-purple">
+                SERVICES
+              </span>
+            </h2>
+            <div className="w-20 h-2 bg-ebs-red mt-6" />
+          </div>
+
+          <div className="lg:max-w-md lg:mt-8" data-aos="fade-left">
+            <div className="border-l-4 border-ebs-yellow pl-6">
+              <p className="text-gray-600 text-lg leading-relaxed">
+                We provide a holistic suite of services designed to take your brand from obscurity to ubiquity.
               </p>
             </div>
-          ))}
+          </div>
         </div>
 
-        {/* Detailed Service List */}
-        <div className="bg-gray-50 rounded-3xl p-10 md:p-16 shadow-inner" data-aos="fade-up">
-            <h3 className="text-3xl font-bold text-ebs-purple mb-10 border-b pb-4">Our Services</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-y-10 gap-x-12">
-                {serviceList.map((service, index) => (
-                    <div key={index} className="hover:bg-white p-4 rounded-lg transition-colors duration-300">
-                        <h4 className="text-lg font-bold text-gray-900 mb-2">{service.title}</h4>
-                        <p className="text-gray-600 text-sm leading-relaxed">{service.desc}</p>
-                    </div>
+        {/* Service Cards */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-2xl p-8 border-2 border-gray-100 hover:border-ebs-purple/30 transition-all duration-300 group hover:shadow-xl hover:-translate-y-1"
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+            >
+              {/* Icon */}
+              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-ebs-purple to-ebs-red flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <div className="text-white">
+                  {service.icon}
+                </div>
+              </div>
+
+              {/* Title */}
+              <h3 className="text-2xl font-bold text-ebs-purple mb-3 group-hover:text-ebs-red transition-colors">
+                {service.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-gray-600 text-sm leading-relaxed mb-6">
+                {service.description}
+              </p>
+
+              {/* Items List */}
+              <ul className="space-y-2">
+                {service.items.map((item, idx) => (
+                  <li key={idx} className="flex items-center gap-2 text-gray-700 text-sm">
+                    <div className="w-1.5 h-1.5 rounded-full bg-ebs-yellow"></div>
+                    <span>{item}</span>
+                  </li>
                 ))}
+              </ul>
             </div>
+          ))}
         </div>
 
       </div>

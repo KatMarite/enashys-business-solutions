@@ -3,9 +3,22 @@ import { CheckCircle2 } from 'lucide-react';
 
 export const Clients: React.FC = () => {
   const clients = [
-    "Engen", "Corner Bakery", "Spur", "The Bridge", "Comensa", "Coach Tina",
-    "Cinnabon", "KFC Africa", "Hussar Grill", "Unjani Clinics", "FNB", "Empower U",
-    "Retsol", "RocoMamas", "Advaita Vidya", "Aromat", "Unilever", "Edubridge"
+    { name: "Engen", domain: "engen.co.za", logo: "/logos/engen.png" },
+    { name: "Corner Bakery", domain: "retsol.africa", logo: "/logos/corner_bakery.png" }, // Retsol brand
+    { name: "Spur", domain: "spur.co.za", logo: "/logos/spur.png" },
+    { name: "Comensa", domain: "comensa.org.za", logo: "/logos/comensa.png" },
+    { name: "Coach Tina", domain: "advaitavidya.co.za", logo: "/logos/coach_tina.png" },
+    { name: "Cinnabon", domain: "cinnabon.co.za", logo: "/logos/cinnabon.png" },
+    { name: "KFC Africa", domain: "kfc.co.za", logo: "/logos/kfc.png" },
+    { name: "Hussar Grill", domain: "hussargrill.co.za", logo: "/logos/hussar_grill.png" },
+    { name: "Unjani Clinics", domain: "unjaniclinic.co.za", logo: "/logos/unjani_clinics.png" },
+    { name: "FNB", domain: "fnb.co.za", logo: "/logos/fnb.png" },
+    { name: "Empower U", domain: "empowerucoaching.co.za", logo: "/logos/empower_u.png" },
+    { name: "Retsol", domain: "retsol.africa", logo: "/logos/retsol_alt.png" },
+    { name: "RocoMamas", domain: "rocomamas.com", logo: "/logos/rocomamas.png" },
+    { name: "Aromat", domain: "unilever.co.za", logo: "/logos/aromat.png" }, // Unilever brand
+    { name: "Unilever", domain: "unilever.co.za", logo: "/logos/unilever.png" },
+    { name: "Edubridge", domain: "edubridge.co.za", logo: "/logos/edubridge.png" }
   ];
 
   return (
@@ -30,9 +43,9 @@ export const Clients: React.FC = () => {
               <h3 className="text-2xl font-bold mb-4">Brands we have worked with:</h3>
               <div className="grid grid-cols-2 gap-3 text-sm">
                 {clients.map((client) => (
-                  <div key={client} className="flex items-center gap-2">
+                  <div key={client.name} className="flex items-center gap-2">
                     <CheckCircle2 size={16} className="text-ebs-yellow shrink-0" />
-                    <span>{client}</span>
+                    <span>{client.name}</span>
                   </div>
                 ))}
               </div>
@@ -54,17 +67,26 @@ export const Clients: React.FC = () => {
                 </div>
               </div>
 
-              {/* Logo Grid (Simulated with placeholders for clean code) */}
+              {/* Logo Grid */}
               <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
                 {clients.map((client, i) => (
                   <div
                     key={i}
-                    className="aspect-video bg-gray-50 rounded-xl flex items-center justify-center p-4 hover:shadow-md transition-all duration-300 border border-gray-100 group hover:-translate-y-1 hover:border-ebs-purple/30"
+                    className="aspect-video bg-white rounded-xl flex items-center justify-center p-4 hover:shadow-md transition-all duration-300 border border-gray-100 group hover:-translate-y-1 hover:border-ebs-purple/30 overflow-hidden"
                     data-aos="fade-up"
                     data-aos-delay={i * 50}
                   >
-                    <span className="text-center font-bold text-gray-400 group-hover:text-ebs-purple transition-colors text-sm md:text-base">
-                      {client}
+                    <img
+                      src={client.logo || `https://logo.clearbit.com/${client.domain}`}
+                      alt={`${client.name} logo`}
+                      className="max-w-full max-h-full object-contain filter grayscale group-hover:grayscale-0 opacity-70 group-hover:opacity-100 transition-all duration-300"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).style.display = 'none';
+                        (e.target as HTMLImageElement).nextElementSibling?.classList.remove('hidden');
+                      }}
+                    />
+                    <span className="text-center font-bold text-gray-400 group-hover:text-ebs-purple transition-colors text-xs hidden">
+                      {client.name}
                     </span>
                   </div>
                 ))}

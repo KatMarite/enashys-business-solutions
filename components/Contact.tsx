@@ -10,25 +10,42 @@ export const Contact: React.FC = () => {
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitted, setSubmitted] = useState(false);
+    const [error, setError] = useState('');
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
+        setError('');
 
-        // Simulate API call for form submission
-        setTimeout(() => {
+        try {
+            const form = e.target as HTMLFormElement;
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                setSubmitted(true);
+                setFormData({ name: '', email: '', subject: '', message: '' });
+
+                // Reset success message after 5 seconds
+                setTimeout(() => setSubmitted(false), 5000);
+            } else {
+                setError('Something went wrong. Please try again or contact us directly.');
+            }
+        } catch (err) {
+            setError('Failed to send message. Please try again or contact us directly.');
+        } finally {
             setIsSubmitting(false);
-            setSubmitted(true);
-            setFormData({ name: '', email: '', subject: '', message: '' });
-
-            // Reset success message after 5 seconds
-            setTimeout(() => setSubmitted(false), 5000);
-        }, 1500);
+        }
     };
 
     return (
@@ -94,7 +111,17 @@ export const Contact: React.FC = () => {
                         <p className="text-gray-500 text-sm">Fill out the form below and we'll be in touch.</p>
                     </div>
 
-                    <form onSubmit={handleSubmit} className="space-y-6">
+                    <form
+                        onSubmit={handleSubmit}
+                        action="https://formsubmit.co/Info@enashysbusinesssutions.com"
+                        method="POST"
+                        className="space-y-6"
+                    >
+                        {/* Hidden fields for FormSubmit configuration */}
+                        <input type="hidden" name="_subject" value="New Contact Form Submission - Enashy's Business Solutions" />
+                        <input type="hidden" name="_captcha" value="false" />
+                        <input type="hidden" name="_template" value="table" />
+
                         <div>
                             <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
                             <input
@@ -147,6 +174,12 @@ export const Contact: React.FC = () => {
                                 placeholder="How can we help you?"
                             ></textarea>
                         </div>
+
+                        {error && (
+                            <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-red-600 text-sm">
+                                {error}
+                            </div>
+                        )}
 
                         <button
                             type="submit"

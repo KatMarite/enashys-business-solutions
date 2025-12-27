@@ -64,7 +64,7 @@ export const Navbar: React.FC = () => {
         >
           {/* Recreated Logo Icon */}
           <img
-            src="/ebs-logo.png"
+            src="/logo.png"
             alt="EBS - Enashy's Business Solutions"
             className="h-14 w-auto object-contain"
           />

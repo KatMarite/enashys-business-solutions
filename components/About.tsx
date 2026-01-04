@@ -11,8 +11,8 @@ export const About: React.FC = () => {
           <div className="lg:w-1/2 relative" data-aos="fade-right">
             <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl group">
               <img
-                src="https://picsum.photos/seed/about/800/1000"
-                alt="Meeting in office"
+                src="/about-image.jpg"
+                alt="Brand Marketing Workspace"
                 className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
               />
             </div>

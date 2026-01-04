@@ -55,11 +55,11 @@ export const Clients: React.FC = () => {
           {/* Logos/Image Area */}
           <div className="lg:w-2/3" data-aos="fade-left">
             <div className="relative">
-              {/* Simulated Laptop Image with 'BRAND' concepts */}
+              {/* Brand Identity Design Image */}
               <div className="relative rounded-3xl overflow-hidden shadow-2xl mb-10 group">
                 <img
-                  src="https://picsum.photos/seed/clients/1200/800?office"
-                  alt="Brand Strategy Session"
+                  src="/clients-image.jpg"
+                  alt="Brand Identity & Corporate Design"
                   className="w-full h-auto object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ebs-dark/80 to-transparent flex items-end p-10">

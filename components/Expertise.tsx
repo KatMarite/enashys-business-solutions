@@ -74,8 +74,8 @@ export const Expertise: React.FC = () => {
         {/* Left Visual - Hidden on mobile for cleaner look or use as banner */}
         <div className="hidden lg:block lg:w-1/3 relative h-[800px]" data-aos="fade-right">
           <img
-            src="https://picsum.photos/seed/expertise/800/1200?grayscale"
-            alt="Team Strategy"
+            src="/expertise-image.jpg"
+            alt="Team Strategy Meeting"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-ebs-purple/30 mix-blend-overlay" />

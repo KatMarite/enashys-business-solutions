@@ -7,6 +7,7 @@ import { Clients } from './components/Clients';
 import { Portfolio } from './components/Portfolio';
 import { Services } from './components/Services';
 import { VisionMission } from './components/VisionMission';
+import { Testimonials } from './components/Testimonials';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { WhatsAppButton } from './components/WhatsAppButton';
@@ -35,6 +36,7 @@ const App: React.FC = () => {
         <Portfolio />
         <Services />
         <VisionMission />
+        <Testimonials />
         <Contact />
       </main>
       <Footer />

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { X, ZoomIn } from 'lucide-react';
 
 interface Project {
   title: string;
@@ -45,6 +46,8 @@ const projects: Project[] = [
 ];
 
 export const Portfolio: React.FC = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   return (
     <section id="portfolio" className="py-24 bg-gray-50">
       <div className="container mx-auto px-6">
@@ -64,14 +67,18 @@ export const Portfolio: React.FC = () => {
               className="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-ebs-red hover:-translate-y-2 cursor-pointer flex flex-col"
               data-aos="fade-up"
               data-aos-delay={index * 100}
+              onClick={() => project.image && setSelectedImage(project.image)}
             >
               {project.image && (
-                <div className="mb-6 rounded-xl overflow-hidden shadow-md">
+                <div className="mb-6 rounded-xl overflow-hidden shadow-md relative">
                   <img
                     src={project.image}
                     alt={project.title}
                     className="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-500"
                   />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                    <ZoomIn className="text-white opacity-0 group-hover:opacity-100 transform scale-75 group-hover:scale-100 transition-all duration-300" size={32} />
+                  </div>
                 </div>
               )}
               <h3 className="text-xl font-bold text-gray-800 mb-4 group-hover:text-ebs-purple transition-colors">
@@ -81,12 +88,36 @@ export const Portfolio: React.FC = () => {
                 {project.description}
               </p>
               <div className="mt-6 flex items-center text-sm font-semibold text-ebs-red opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                View Details
+                View Project
               </div>
             </div>
           ))}
         </div>
       </div>
+
+      {/* Image Modal */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 md:p-10 animate-in fade-in duration-300"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button
+            className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors"
+            onClick={() => setSelectedImage(null)}
+          >
+            <X size={48} />
+          </button>
+
+          <div className="relative max-w-5xl max-h-full w-full flex items-center justify-center">
+            <img
+              src={selectedImage}
+              alt="Project Full View"
+              className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl animate-in zoom-in-95 duration-300"
+              onClick={(e) => e.stopPropagation()} // Prevent clicking image from closing modal
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 };

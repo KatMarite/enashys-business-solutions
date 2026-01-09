@@ -20,7 +20,7 @@ const projects: Project[] = [
   {
     title: "EduBridge",
     description: "Full brand development, positioning, and marketing roadmap for a new beverage brand.",
-    image: "https://picsum.photos/seed/edubridge/800/600"
+    image: "/edubridge-event.jpg"
   },
   {
     title: "Corner Bakery Activation",
@@ -35,7 +35,7 @@ const projects: Project[] = [
   {
     title: "Personal Branding Projects",
     description: "Brand identity, PR, and digital positioning for entrepreneurs and public figures.",
-    image: "https://picsum.photos/seed/branding/800/600"
+    image: "/personal-branding.jpg"
   },
   {
     title: "Lead Generation Campaigns",

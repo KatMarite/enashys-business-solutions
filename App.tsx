@@ -12,17 +12,18 @@ import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { WhatsAppButton } from './components/WhatsAppButton';
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 const App: React.FC = () => {
   useEffect(() => {
     // Initialize AOS animation library
-    if ((window as any).AOS) {
-      (window as any).AOS.init({
-        duration: 1000,
-        once: true,
-        easing: 'ease-out-cubic',
-        offset: 100,
-      });
-    }
+    AOS.init({
+      duration: 1000,
+      once: true,
+      easing: 'ease-out-cubic',
+      offset: 100,
+    });
   }, []);
 
   return (

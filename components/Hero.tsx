@@ -8,7 +8,7 @@ export const Hero: React.FC = () => {
       <div className="absolute inset-0 z-0">
         <img
           src="https://picsum.photos/seed/hero/1920/1080?grayscale&blur=2"
-          alt="City Skyline"
+          alt="Strategic Marketing and Business Solutions Background"
           className="w-full h-full object-cover transform scale-105 animate-slow-zoom"
         />
         {/* Gradient Overlay mimicking the PDF style */}

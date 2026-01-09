@@ -15,7 +15,7 @@ const projects: Project[] = [
   {
     title: "Cinnabon Product Launch",
     description: "Launch event and influencer-driven PR campaign for new product rollout.",
-    image: "https://picsum.photos/seed/cinnabon/800/600"
+    image: "/cinnabon-launch.jpg"
   },
   {
     title: "EduBridge",
@@ -25,7 +25,7 @@ const projects: Project[] = [
   {
     title: "Corner Bakery Activation",
     description: "In-store activation and sampling campaign across multiple retail locations.",
-    image: "https://picsum.photos/seed/bakery/800/600"
+    image: "/corner-bakery-activation.jpg"
   },
   {
     title: "Corporate Event – The Bridge",

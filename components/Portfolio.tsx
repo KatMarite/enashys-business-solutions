@@ -10,7 +10,7 @@ const projects: Project[] = [
   {
     title: "Engen Activation Campaign",
     description: "National experiential campaign focused on consumer engagement and brand awareness.",
-    image: "https://picsum.photos/seed/engen/800/600"
+    image: "/engen-activation.jpg"
   },
   {
     title: "Cinnabon Product Launch",

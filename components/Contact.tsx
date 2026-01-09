@@ -78,7 +78,7 @@ export const Contact: React.FC = () => {
                         <div className="w-12 h-12 rounded-full bg-ebs-yellow flex items-center justify-center text-ebs-dark group-hover:scale-110 transition-transform">
                             <Mail size={24} />
                         </div>
-                        <span className="text-xl font-medium break-all">Info@enashysbusinesssutions.com</span>
+                        <span className="text-xl font-medium break-all">Info@enashysbusinesssolutions.com</span>
                     </div>
                 </div>
 
@@ -113,7 +113,7 @@ export const Contact: React.FC = () => {
 
                     <form
                         onSubmit={handleSubmit}
-                        action="https://formsubmit.co/Info@enashysbusinesssutions.com"
+                        action="https://formsubmit.co/Info@enashysbusinesssolutions.com"
                         method="POST"
                         className="space-y-6"
                     >

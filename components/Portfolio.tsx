@@ -3,6 +3,7 @@ import React from 'react';
 interface Project {
   title: string;
   description: string;
+  image?: string;
 }
 
 const projects: Project[] = [
@@ -15,7 +16,7 @@ const projects: Project[] = [
     description: "Launch event and influencer-driven PR campaign for new product rollout."
   },
   {
-    title: "Red Sol Brand Strategy",
+    title: "EduBridge",
     description: "Full brand development, positioning, and marketing roadmap for a new beverage brand."
   },
   {
@@ -32,7 +33,8 @@ const projects: Project[] = [
   },
   {
     title: "Lead Generation Campaigns",
-    description: "B2B and B2C database sourcing and automation setup for client sales teams."
+    description: "B2B and B2C database sourcing and automation setup for client sales teams.",
+    image: "/lead-generation-masterclass.jpg"
   }
 ];
 
@@ -51,16 +53,25 @@ export const Portfolio: React.FC = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <div 
-              key={index} 
-              className="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-ebs-red hover:-translate-y-2 cursor-pointer"
+            <div
+              key={index}
+              className="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-ebs-red hover:-translate-y-2 cursor-pointer flex flex-col"
               data-aos="fade-up"
               data-aos-delay={index * 100}
             >
+              {project.image && (
+                <div className="mb-6 rounded-xl overflow-hidden shadow-md">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              )}
               <h3 className="text-xl font-bold text-gray-800 mb-4 group-hover:text-ebs-purple transition-colors">
                 {project.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed flex-grow">
                 {project.description}
               </p>
               <div className="mt-6 flex items-center text-sm font-semibold text-ebs-red opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">

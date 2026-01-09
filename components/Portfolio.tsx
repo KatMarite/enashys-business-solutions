@@ -9,27 +9,33 @@ interface Project {
 const projects: Project[] = [
   {
     title: "Engen Activation Campaign",
-    description: "National experiential campaign focused on consumer engagement and brand awareness."
+    description: "National experiential campaign focused on consumer engagement and brand awareness.",
+    image: "https://picsum.photos/seed/engen/800/600"
   },
   {
     title: "Cinnabon Product Launch",
-    description: "Launch event and influencer-driven PR campaign for new product rollout."
+    description: "Launch event and influencer-driven PR campaign for new product rollout.",
+    image: "https://picsum.photos/seed/cinnabon/800/600"
   },
   {
     title: "EduBridge",
-    description: "Full brand development, positioning, and marketing roadmap for a new beverage brand."
+    description: "Full brand development, positioning, and marketing roadmap for a new beverage brand.",
+    image: "https://picsum.photos/seed/edubridge/800/600"
   },
   {
     title: "Corner Bakery Activation",
-    description: "In-store activation and sampling campaign across multiple retail locations."
+    description: "In-store activation and sampling campaign across multiple retail locations.",
+    image: "https://picsum.photos/seed/bakery/800/600"
   },
   {
     title: "Corporate Event – The Bridge",
-    description: "Concept, production, and execution of a corporate networking event."
+    description: "Concept, production, and execution of a corporate networking event.",
+    image: "https://picsum.photos/seed/corporate/800/600"
   },
   {
     title: "Personal Branding Projects",
-    description: "Brand identity, PR, and digital positioning for entrepreneurs and public figures."
+    description: "Brand identity, PR, and digital positioning for entrepreneurs and public figures.",
+    image: "https://picsum.photos/seed/branding/800/600"
   },
   {
     title: "Lead Generation Campaigns",

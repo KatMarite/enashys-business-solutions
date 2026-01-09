@@ -3,20 +3,6 @@ import { Menu, X, ChevronRight } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-
-    // Check initial scroll position
-    handleScroll();
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   const navLinks = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
@@ -46,14 +32,9 @@ export const Navbar: React.FC = () => {
     }
   };
 
-  // Determine if we should apply the "scrolled" style (white bg, dark text)
-  // We also apply this when the mobile menu is open so the close button/logo are visible
-  const isSolid = scrolled || isOpen;
-
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isSolid ? 'bg-white shadow-lg py-3' : 'bg-transparent py-5'
-        }`}
+      className="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white shadow-lg py-3"
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
@@ -77,8 +58,7 @@ export const Navbar: React.FC = () => {
               key={link.name}
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
-              className={`text-sm font-medium uppercase tracking-wider hover:text-ebs-red transition-colors duration-300 cursor-pointer ${isSolid ? 'text-gray-800' : 'text-white'
-                }`}
+              className="text-sm font-medium uppercase tracking-wider hover:text-ebs-red transition-colors duration-300 cursor-pointer text-gray-800"
             >
               {link.name}
             </a>
@@ -86,10 +66,7 @@ export const Navbar: React.FC = () => {
           <a
             href="#contact"
             onClick={(e) => handleNavClick(e, '#contact')}
-            className={`px-5 py-2 rounded-full text-sm font-bold uppercase tracking-wide transition-all duration-300 transform hover:scale-105 cursor-pointer ${isSolid
-              ? 'bg-ebs-purple text-white hover:bg-ebs-red'
-              : 'bg-white text-ebs-purple hover:bg-gray-100'
-              }`}
+            className="px-5 py-2 rounded-full text-sm font-bold uppercase tracking-wide transition-all duration-300 transform hover:scale-105 cursor-pointer bg-ebs-purple text-white hover:bg-ebs-red"
           >
             Get in touch
           </a>
@@ -102,9 +79,9 @@ export const Navbar: React.FC = () => {
           aria-label="Toggle menu"
         >
           {isOpen ? (
-            <X className={isSolid ? 'text-gray-800' : 'text-white'} size={28} />
+            <X className="text-gray-800" size={28} />
           ) : (
-            <Menu className={isSolid ? 'text-gray-800' : 'text-white'} size={28} />
+            <Menu className="text-gray-800" size={28} />
           )}
         </button>
       </div>

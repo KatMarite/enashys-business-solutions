@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Download } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   return (
@@ -56,11 +56,12 @@ export const Hero: React.FC = () => {
             data-aos-delay="600"
           >
             <a
-              href="#about"
+              href="/Enashys Business Profile_updated.pdf"
+              download
               className="px-8 py-4 bg-white text-ebs-purple font-bold rounded-full hover:bg-ebs-yellow hover:text-white transition-all duration-300 flex items-center justify-center gap-2 group shadow-xl hover:scale-105 active:scale-95"
             >
-              Discover More
-              <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+              Download Profile
+              <Download className="group-hover:translate-y-1 transition-transform" />
             </a>
             <a
               href="#contact"

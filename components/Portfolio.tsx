@@ -31,7 +31,7 @@ const projects: Project[] = [
   {
     title: "Corporate Event – The Bridge",
     description: "Concept, production, and execution of a corporate networking event.",
-    image: "https://picsum.photos/seed/corporate/800/600"
+    image: "/corporate-event.jpg"
   },
   {
     title: "Personal Branding Projects",

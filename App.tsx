@@ -11,8 +11,11 @@ import { Testimonials } from './components/Testimonials';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { WhatsAppButton } from './components/WhatsAppButton';
+import { Maintenance } from './components/Maintenance';
 
 const App: React.FC = () => {
+  const MAINTENANCE_MODE = true;
+
   useEffect(() => {
     // Initialize AOS animation library
     if ((window as any).AOS) {
@@ -24,6 +27,10 @@ const App: React.FC = () => {
       });
     }
   }, []);
+
+  if (MAINTENANCE_MODE) {
+    return <Maintenance />;
+  }
 
   return (
     <div className="font-sans text-gray-800 bg-white selection:bg-ebs-purple selection:text-white overflow-x-hidden">

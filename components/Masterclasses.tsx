@@ -108,10 +108,7 @@ export const Masterclasses: React.FC = () => {
 
                             {/* Content */}
                             <div className="p-6">
-                                <div className="flex items-center gap-2 text-ebs-purple text-xs font-bold uppercase tracking-wider mb-3">
-                                    <Users size={14} />
-                                    {video.audience}
-                                </div>
+
                                 <h3 className="text-xl font-bold mb-3 group-hover:text-ebs-purple transition-colors duration-300">
                                     {video.title}
                                 </h3>

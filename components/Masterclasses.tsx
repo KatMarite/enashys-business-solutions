@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Play, Lock, Clock, Users, X } from 'lucide-react';
+import { Play, Lock, Clock, Users, X, Video } from 'lucide-react';
 
 const masterclasses = [
     {
@@ -8,7 +8,7 @@ const masterclasses = [
         description: "Welcome to Enashy's Business Solutions. Discover how we can transform your business presence.",
         duration: "Main Intro",
         audience: "Everyone",
-        thumbnail: "https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1674&q=80",
+        thumbnail: "https://i.vimeocdn.com/video/2111994302-0ea849dd5069f52df94e79b9aa69284b1f2ed0ed1ffe9d7d7819b0b54f514443-d_1280",
         isLocked: false,
         videoUrl: "https://player.vimeo.com/video/1158078207" // Intro video
     },
@@ -18,7 +18,7 @@ const masterclasses = [
         description: "Explore how strategic decisions drive measurable business outcomes and sustainable growth.",
         duration: "Jan 24, 2026",
         audience: "Business Leaders",
-        thumbnail: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80",
+        thumbnail: "https://i.vimeocdn.com/video/2111994105-3193329db07e37696cba1f9c8451a48d67b25b9ab7a6872d6ff1e2663da2b0f9-d_1280",
         isLocked: false,
         videoUrl: "https://player.vimeo.com/video/1158078085"
     },
@@ -69,35 +69,40 @@ export const Masterclasses: React.FC = () => {
                             data-aos-delay={index * 100}
                         >
                             {/* Thumbnail Container */}
-                            <div className="relative aspect-video bg-gray-700 flex items-center justify-center overflow-hidden">
+                            <div
+                                className={`relative aspect-video bg-gray-700 flex items-center justify-center overflow-hidden ${video.videoUrl && !video.isLocked ? 'cursor-pointer' : ''}`}
+                                onClick={() => handleWatch(video.videoUrl, video.isLocked)}
+                            >
                                 {video.thumbnail.startsWith('http') ? (
-                                    <img src={video.thumbnail} alt={video.title} className="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity" />
+                                    <img src={video.thumbnail} alt={video.title} className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity" />
                                 ) : (
                                     /* Placeholder background if no image */
                                     <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900" />
                                 )}
 
-                                {/* Overlay */}
-                                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300" />
+                                {/* Overlay - darker gradient at bottom for text readability */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
 
-                                {/* Play Button */}
-                                <button
-                                    onClick={() => handleWatch(video.videoUrl, video.isLocked)}
-                                    disabled={!video.videoUrl}
-                                    className={`relative z-10 w-16 h-16 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 border border-white/20 cursor-pointer ${!video.videoUrl ? 'opacity-50 cursor-not-allowed' : ''}`}
-                                >
-                                    {video.isLocked ? (
-                                        <Lock className="text-white w-6 h-6" />
-                                    ) : (
-                                        <Play className="text-white w-6 h-6 ml-1 fill-white" />
-                                    )}
-                                </button>
 
-                                {/* Tags */}
-                                <div className="absolute top-4 right-4 flex gap-2">
-                                    <span className="px-3 py-1 bg-black/60 backdrop-blur-sm rounded-full text-xs font-medium flex items-center gap-1">
-                                        <Clock size={12} /> {video.duration}
-                                    </span>
+
+                                {/* Top Left Icon - Mimicking the reference */}
+                                <div className="absolute top-4 left-4 text-white drop-shadow-md">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+                                        <line x1="7" y1="2" x2="7" y2="22"></line>
+                                        <line x1="17" y1="2" x2="17" y2="22"></line>
+                                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                                        <line x1="2" y1="7" x2="7" y2="7"></line>
+                                        <line x1="2" y1="17" x2="7" y2="17"></line>
+                                        <line x1="17" y1="17" x2="22" y2="17"></line>
+                                        <line x1="17" y1="7" x2="22" y2="7"></line>
+                                    </svg>
+                                </div>
+
+                                {/* Duration - Bottom Left */}
+                                <div className="absolute bottom-4 left-4 flex gap-2 items-center text-white font-bold text-lg drop-shadow-md">
+                                    <Video size={20} className="fill-white" />
+                                    <span>{video.duration}</span>
                                 </div>
                             </div>
 
@@ -131,12 +136,7 @@ export const Masterclasses: React.FC = () => {
                     ))}
                 </div>
 
-                <div className="mt-16 text-center" data-aos="fade-up">
-                    <p className="text-gray-400 mb-6">Want access to our complete library of premium content?</p>
-                    <a href="#contact" className="inline-block px-8 py-4 bg-transparent border-2 border-ebs-purple text-white font-bold rounded-full hover:bg-ebs-purple transition-all duration-300 uppercase tracking-widest hover:scale-105">
-                        Get All Access Pass
-                    </a>
-                </div>
+
             </div>
 
             {/* Video Modal */}

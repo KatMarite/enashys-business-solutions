@@ -10,8 +10,9 @@ export const Navbar: React.FC = () => {
     { name: 'Clients', href: '#clients' },
     { name: 'Portfolio', href: '#portfolio' },
     { name: 'Services', href: '#services' },
+    { name: 'Masterclasses', href: '#masterclasses' },
     { name: 'Vision', href: '#vision' },
-    { name: 'Contact', href: '#contact' },
+
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {

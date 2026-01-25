@@ -12,9 +12,10 @@ import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { WhatsAppButton } from './components/WhatsAppButton';
 import { Maintenance } from './components/Maintenance';
+import { Masterclasses } from './components/Masterclasses';
 
 const App: React.FC = () => {
-  const MAINTENANCE_MODE = true;
+  const MAINTENANCE_MODE = false;
 
   useEffect(() => {
     // Initialize AOS animation library
@@ -42,6 +43,7 @@ const App: React.FC = () => {
         <Clients />
         <Portfolio />
         <Services />
+        <Masterclasses />
         <VisionMission />
         <Testimonials />
         <Contact />

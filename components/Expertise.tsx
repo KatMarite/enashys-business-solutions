@@ -33,7 +33,11 @@ const extendedItems = [
   {
     title: "Personal Branding & Talent Management",
     desc: "Developing strong personal brands for professionals, entrepreneurs, and public figures.",
-    icon: <UserCheck />
+    icon: <UserCheck />,
+    cta: {
+      text: "Book a Personal Branding Coaching Session",
+      link: "https://calendly.com/"
+    }
   },
   {
     title: "Digital Marketing & Social Media",
@@ -137,6 +141,16 @@ export const Expertise: React.FC = () => {
                     {item.title}
                   </h4>
                   <p className="text-gray-600">{item.desc}</p>
+                  {(item as any).cta && (
+                    <a
+                      href={(item as any).cta.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block mt-4 px-6 py-2 bg-ebs-purple text-white text-sm font-bold rounded-full hover:bg-ebs-red transition-colors duration-300 shadow-md hover:shadow-lg"
+                    >
+                      {(item as any).cta.text}
+                    </a>
+                  )}
                 </div>
               </div>
             ))}

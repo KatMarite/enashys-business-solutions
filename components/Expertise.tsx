@@ -36,7 +36,7 @@ const extendedItems = [
     icon: <UserCheck />,
     cta: {
       text: "Book a Personal Branding Coaching Session",
-      link: "https://calendly.com/"
+      link: "https://calendly.com/tinamujera/30min"
     }
   },
   {

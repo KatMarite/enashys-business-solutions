@@ -15,7 +15,7 @@ import { Maintenance } from './components/Maintenance';
 import { Masterclasses } from './components/Masterclasses';
 
 const App: React.FC = () => {
-  const MAINTENANCE_MODE = true;
+  const MAINTENANCE_MODE = false;
 
   useEffect(() => {
     // Initialize AOS animation library
